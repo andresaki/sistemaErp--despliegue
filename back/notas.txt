@@ -1,0 +1,91 @@
+1 ---------------------------------
+
+    Instalacion de postman, mongo compass (version community sever) .
+    creacion de las carpetas front y back y npm init
+
+    instalacion de recursos hasta el momento
+
+    express
+    dotenv
+    mongose
+
+
+    creacion de:
+
+    back -> config -> confing.env 
+    back -> app.js y server.js
+
+2 ----------------------------------
+
+    instalacion del recurso nodemon
+    npm i nodemon --save-doten
+
+    Nodemon es una herramienta utilizada en el desarrollo de aplicaciones Node.js que automáticamente reinicia el servidor cada vez que detecta cambios en los archivos del proyecto. Esto evita tener que reiniciar manualmente el servidor cada vez que se realizan modificaciones en el código, lo que agiliza el proceso de desarrollo. En resumen, nodemon ayuda a los desarrolladores a mantener el servidor actualizado y en funcionamiento mientras trabajan en sus proyectos.
+
+    -edicion de scripts en package.json
+    start, dev , prod
+
+
+    "start": "node back/server.js"
+    Este comando se utiliza para iniciar la aplicación en un entorno de producción. Utiliza el ejecutable node para iniciar el archivo server.js que se encuentra dentro de la carpeta back del proyecto.
+
+    "dev" : "SET NODE_ENV=DEVELOPMENT& nodemon back/server"
+    Este comando se utiliza para iniciar la aplicación en un entorno de desarrollo. Primero, establece la variable de entorno NODE_ENV en DEVELOPMENT. Luego, utiliza nodemon para monitorear los cambios en los archivos y reiniciar automáticamente el servidor cuando hay cambios. Esto es útil durante el desarrollo, ya que elimina la necesidad de reiniciar manualmente el servidor después de cada modificación en el código.
+
+    "prod" : "SET NODE_ENV=PRODUCTION& nodemon back/server"
+    Este comando es similar al anterior, pero está diseñado para inicia la aplicación en un entorno de producción. Establece la variable de entorno NODE_ENV en PRODUCTION, lo que puede ser útil para que la aplicación realice ciertas configuraciones específicas para el entorno de producción. Luego utiliza nodemon para monitorear cambios y reiniciar el servidor, aunque en un entorno de producción, por lo general, no se necesita esta funcionalidad, por lo que podría ser un error en el nombre del script o una configuración alternativa específica del proyecto.
+
+    ---------
+    creacion de las carpeta 
+
+    back -> controller y routes
+
+
+
+    req , res , next
+
+    req = requiere algo
+    res = responde algo
+    next = ejecuta una accion
+
+3 ----------------------------------
+
+    creacion de la coneccion de la base de datos mongo
+
+4 ----------------------------------
+
+5 ----------------------------------
+
+6 ----------------------------------
+
+7 ----------------------------------
+
+8 ----------------------------------
+
+9 ----------------------------------
+
+10 ----------------------------------
+
+11 ----------------------------------
+
+12 ----------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

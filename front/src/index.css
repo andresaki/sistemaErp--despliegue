@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import "keep-react/css";
+@import "skeleton-screen-css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  --primary-color: #0256A4;
+  --primary-color: #0256A4;
+  font-family: "Montserrat", sans-serif;
+}
+
+*::-webkit-scrollbar{
+  width: 3px;
+  height: 5px;
+}
+*::-webkit-scrollbar-thumb{
+  background: rgb(101, 101, 101);
+  border-radius: 20px;
+}
+
+#root{
+  /* display: flex; */
+  justify-content: center;
+}
