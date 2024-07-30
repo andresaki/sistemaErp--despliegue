@@ -1,12 +1,12 @@
 import axios from 'axios'
 import { ALL_MOVIMIENTO_STOCK_FAIL, ALL_MOVIMIENTO_STOCK_REQUEST, ALL_MOVIMIENTO_STOCK_SUCCESS, CLEAR_ERRORS, NEW_MOVIMIENTO_STOCK_FAIL, NEW_MOVIMIENTO_STOCK_REQUEST, NEW_MOVIMIENTO_STOCK_SUCCESS } from '../constants/stockConstants';
-
+const apiUrl = import.meta.env.VITE_BACKEND_URL;
 
 export const getMovimientos = () => async(dispatch) => {
     try {
         dispatch ({type: ALL_MOVIMIENTO_STOCK_REQUEST})
 
-        const {data} = await axios.get('/api/movimientos'); 
+        const {data} = await axios.get(`${apiUrl}/api/movimientos`); 
 
         dispatch({
             type:ALL_MOVIMIENTO_STOCK_SUCCESS,
@@ -36,7 +36,7 @@ export const newMovimientoStock = (movimientoData) => async ( dispatch ) => {
             }
         };
         
-        const {data} = await axios.post(`/api/movimiento/nuevo`, movimientoData, config)
+        const {data} = await axios.post(`${apiUrl}/api/movimiento/nuevo`, movimientoData, config)
 
         dispatch({
             type: NEW_MOVIMIENTO_STOCK_SUCCESS,

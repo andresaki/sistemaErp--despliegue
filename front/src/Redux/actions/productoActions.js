@@ -1,12 +1,13 @@
 import axios from 'axios';
 import { ALL_PRODUCTS_REQUEST ,ALL_PRODUCTS_FAIL, ALL_PRODUCTS_SUCCESS , CLEAR_ERRORS, NEW_PRODUCT_REQUEST, NEW_PRODUCT_SUCCESS, NEW_PRODUCT_FAIL, DELETE_PRODUCT_REQUEST, DELETE_PRODUCT_SUCCESS, DELETE_PRODUCT_FAIL, UPDATE_PRODUCT_REQUEST, UPDATE_PRODUCT_SUCCESS, UPDATE_PRODUCT_FAIL, PRODUCT_DETAILS_REQUEST, PRODUCT_DETAILS_SUCCESS, PRODUCT_DETAILS_FAIL } from '../constants/productoConstants';
+const apiUrl = import.meta.env.VITE_BACKEND_URL;
 
 //  all products
 export const getProducts = () => async(dispatch) => {
     try {
         dispatch ({type: ALL_PRODUCTS_REQUEST})
 
-        const {data} = await axios.get('/api/productos'); 
+        const {data} = await axios.get(`${apiUrl}/api/productos`); 
 
         dispatch({
             type:ALL_PRODUCTS_SUCCESS,
@@ -36,7 +37,7 @@ export const newProduct = (productData) => async ( dispatch ) => {
             }
         };
         
-        const {data} = await axios.post(`/api/producto/nuevo`, productData, config)
+        const {data} = await axios.post(`${apiUrl}/api/producto/nuevo`, productData, config)
 
         dispatch({
             type: NEW_PRODUCT_SUCCESS,
@@ -62,7 +63,7 @@ export const deleteProduct = (id) => async ( dispatch ) => {
     try{
         dispatch({type: DELETE_PRODUCT_REQUEST})
         
-        const {data} = await axios.delete(`/api/producto/${id}`)
+        const {data} = await axios.delete(`${apiUrl}/api/producto/${id}`)
 
         dispatch({
             type: DELETE_PRODUCT_SUCCESS,
@@ -86,7 +87,7 @@ export const deleteProduct = (id) => async ( dispatch ) => {
 export const getProductDetails = (id) => async (dispatch) => {
     try {
         dispatch({ type: PRODUCT_DETAILS_REQUEST })
-        const { data } = await axios.get(`/api/producto/${id}`)
+        const { data } = await axios.get(`${apiUrl}/api/producto/${id}`)
         dispatch({
             type: PRODUCT_DETAILS_SUCCESS,
             payload: data.product
@@ -112,7 +113,7 @@ export const updateProduct = (id, dataProduct) => async ( dispatch ) => {
             }
         };
         
-        const {data} = await axios.put(`/api/producto/${id}`, dataProduct, config)
+        const {data} = await axios.put(`${apiUrl}/api/producto/${id}`, dataProduct, config)
 
         dispatch({
             type: UPDATE_PRODUCT_SUCCESS,

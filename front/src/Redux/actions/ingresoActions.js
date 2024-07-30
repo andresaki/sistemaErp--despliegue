@@ -1,13 +1,13 @@
 import axios from 'axios';
 import { ALL_INGRESOS_FAIL, ALL_INGRESOS_REQUEST, ALL_INGRESOS_SUCCESS,  CLEAR_ERRORS,  DELETE_INGRESO_FAIL, DELETE_INGRESO_REQUEST, DELETE_INGRESO_SUCCESS, INGRESO_DETAILS_FAIL, INGRESO_DETAILS_REQUEST, INGRESO_DETAILS_SUCCESS, NEW_INGRESO_FAIL, NEW_INGRESO_REQUEST, NEW_INGRESO_SUCCESS,  UPDATE_INGRESO_FAIL, UPDATE_INGRESO_REQUEST, UPDATE_INGRESO_SUCCESS } from '../constants/ingresoConstants';
-
+const apiUrl = import.meta.env.VITE_BACKEND_URL;
 
 // all ingresos
 export const getIngresos = () => async(dispatch) => {
     try {
         dispatch ({type: ALL_INGRESOS_REQUEST})
 
-        const {data} = await axios.get('/api/ingresos'); 
+        const {data} = await axios.get(`${apiUrl}/api/ingresos`); 
 
         dispatch({
             type:ALL_INGRESOS_SUCCESS,
@@ -36,7 +36,7 @@ export const newIngreso = (ingresoData) => async ( dispatch ) => {
             }
         };
         
-        const {data} = await axios.post(`/api/ingreso/nuevo`, ingresoData, config)
+        const {data} = await axios.post(`${apiUrl}/api/ingreso/nuevo`, ingresoData, config)
 
         dispatch({
             type: NEW_INGRESO_SUCCESS,
@@ -60,7 +60,7 @@ export const deleteIngreso = (id) => async ( dispatch ) => {
     try{
         dispatch({type: DELETE_INGRESO_REQUEST})
         
-        const {data} = await axios.delete(`/api/ingreso/${id}`)
+        const {data} = await axios.delete(`${apiUrl}/api/ingreso/${id}`)
 
         dispatch({
             type: DELETE_INGRESO_SUCCESS,
@@ -82,7 +82,7 @@ export const deleteIngreso = (id) => async ( dispatch ) => {
 export const getIngresoDetails = (id) => async (dispatch) => {
     try {
         dispatch({ type: INGRESO_DETAILS_REQUEST })
-        const { data } = await axios.get(`/api/ingreso/${id}`)
+        const { data } = await axios.get(`${apiUrl}/api/ingreso/${id}`)
         dispatch({
             type: INGRESO_DETAILS_SUCCESS,
             payload: data
@@ -108,7 +108,7 @@ export const updateIngreso = (id, ingresoData) => async ( dispatch ) => {
             }
         };
         
-        const {data} = await axios.put(`/api/ingreso/${id}`, ingresoData, config)
+        const {data} = await axios.put(`${apiUrl}/api/ingreso/${id}`, ingresoData, config)
 
         dispatch({
             type: UPDATE_INGRESO_SUCCESS,
