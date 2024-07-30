@@ -3,6 +3,8 @@ const express = require("express");
 const  errorMiddleware = require("./middleware/errors")  
 const cookieParser = require("cookie-parser")
 const bodyParser = require('body-parser')
+const dotenv = require('dotenv');
+const cors = require('cors');
 
 
 // Creamos una instancia de express y la almacenamos en la variable 'app'
@@ -14,6 +16,15 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(cookieParser())
+
+dotenv.config({path: "config/config.env"});
+// Configura CORS usando la variable de entorno
+app.use(cors({
+    origin: process.env.FRONTEND_URL, // Usa la variable de entorno para la URL de tu frontend
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true
+}));
+
 
 // importar rutas
 const productos = require("./routes/products")
